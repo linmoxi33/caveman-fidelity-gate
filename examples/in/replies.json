@@ -1,0 +1,14 @@
+{
+  "__terse__": [
+    "Retry at most 3 times. Wait 250 ms first, except for HTTP 429.",
+    "Token never logged. Rotation not automatic."
+  ],
+  "caveman": [
+    "Retry max 3. 250 ms wait. 429 except. No log token. No auto rotate.",
+    "Token never logged. Rotation not automatic."
+  ],
+  "naive-compressor": [
+    "Retry at least 3 times. Wait 250 ms, except for HTTP 429.",
+    "Token logging is fine. Rotation automatic."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "id": "retry-policy",
+      "category": "exact-preservation",
+      "prompt": "Restate the retry policy without changing meaning: Do not retry more than 3 times. Retry only after 250 ms, except for HTTP 429.",
+      "checks": {
+        "must_include": ["\\b(3|three)\\b", "250\\s*(ms|milli)", "\\b429\\b",
+                         "\\b(no|not|never|max(imum)?|at most|up to|limit(ed)?|cap(ped)?)\\b|n't|<=|\\u2264",
+                         "\\b(except|unless|excluding|other than|apart from)\\b"],
+        "must_not_include": ["\\bat least (3|three)\\b"]
+      },
+      "examples": {
+        "pass": ["Retry at most 3 times. Wait 250 ms first, except for HTTP 429."],
+        "fail": ["Retry at least 3 times. Wait 250 ms, except for HTTP 429."]
+      }
+    },
+    {
+      "id": "cache-safety",
+      "category": "safety-clarity",
+      "prompt": "Explain that the token must never be logged and cannot be rotated automatically.",
+      "checks": {
+        "must_include": ["\\b(never|must not|no|not)\\b", "token", "rotat"],
+        "must_not_include": ["\\b(safe to log|logging is (fine|ok))\\b"]
+      },
+      "examples": {
+        "pass": ["Token never logged. Rotation not automatic."],
+        "fail": ["Token logging is fine. Rotation automatic."]
+      }
+    }
+  ]
+}

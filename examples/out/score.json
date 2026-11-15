@@ -1,0 +1,105 @@
+{
+  "arms": [
+    "__terse__",
+    "caveman",
+    "naive-compressor"
+  ],
+  "cases": 2,
+  "exit_code": 1,
+  "mode": "score",
+  "results": [
+    {
+      "arm": "__terse__",
+      "case": "retry-policy",
+      "category": "exact-preservation",
+      "failures": [],
+      "passed": true
+    },
+    {
+      "arm": "__terse__",
+      "case": "cache-safety",
+      "category": "safety-clarity",
+      "failures": [],
+      "passed": true
+    },
+    {
+      "arm": "caveman",
+      "case": "retry-policy",
+      "category": "exact-preservation",
+      "failures": [],
+      "passed": true
+    },
+    {
+      "arm": "caveman",
+      "case": "cache-safety",
+      "category": "safety-clarity",
+      "failures": [],
+      "passed": true
+    },
+    {
+      "arm": "naive-compressor",
+      "case": "retry-policy",
+      "category": "exact-preservation",
+      "failures": [
+        {
+          "kind": "missing",
+          "literal_hint": "no not never max",
+          "nearest": {
+            "line": 1,
+            "ratio": 0.1918,
+            "text": "Retry at least 3 times. Wait 250 ms, except for HTTP 429."
+          },
+          "pattern": "\\b(no|not|never|max(imum)?|at most|up to|limit(ed)?|cap(ped)?)\\b|n't|<=|\\u2264"
+        },
+        {
+          "excerpt": "Retry at least 3 times. Wait 250 ms, except for HTTP 429",
+          "kind": "forbidden",
+          "line": 1,
+          "pattern": "\\bat least (3|three)\\b",
+          "span": [
+            6,
+            16
+          ]
+        }
+      ],
+      "passed": false
+    },
+    {
+      "arm": "naive-compressor",
+      "case": "cache-safety",
+      "category": "safety-clarity",
+      "failures": [
+        {
+          "kind": "missing",
+          "literal_hint": "never must not no",
+          "nearest": {
+            "line": 1,
+            "ratio": 0.2373,
+            "text": "Token logging is fine. Rotation automatic."
+          },
+          "pattern": "\\b(never|must not|no|not)\\b"
+        },
+        {
+          "excerpt": "Token logging is fine. Rotation automatic.",
+          "kind": "forbidden",
+          "line": 1,
+          "pattern": "\\b(safe to log|logging is (fine|ok))\\b",
+          "span": [
+            6,
+            21
+          ]
+        }
+      ],
+      "passed": false
+    }
+  ],
+  "summary": {
+    "checks": 6,
+    "failed": 2,
+    "min_rate": null,
+    "pass_rate": 0.6667,
+    "passed": 4
+  },
+  "tool": "caveman-fidelity-gate",
+  "version": "1.0.0"
+}

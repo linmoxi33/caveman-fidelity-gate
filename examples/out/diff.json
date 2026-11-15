@@ -1,0 +1,38 @@
+{
+  "compressed": "compressed.txt",
+  "dropped": [
+    {
+      "kind": "negation",
+      "line": 1,
+      "offset": 3,
+      "text": "not"
+    },
+    {
+      "kind": "negation",
+      "line": 1,
+      "offset": 38,
+      "text": "only"
+    },
+    {
+      "kind": "negation",
+      "line": 2,
+      "offset": 93,
+      "text": "never"
+    }
+  ],
+  "exit_code": 1,
+  "mode": "diff",
+  "original": "original.txt",
+  "summary": {
+    "by_kind": {
+      "negation": 3
+    },
+    "drop_rate": 0.2308,
+    "dropped": 3,
+    "preserved": 10,
+    "protected_spans": 13,
+    "unique_spans": 13
+  },
+  "tool": "caveman-fidelity-gate",
+  "version": "1.0.0"
+}

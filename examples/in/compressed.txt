@@ -1,0 +1,2 @@
+Retry max 3. Wait 250 ms. HTTP 429 except. No log token to /var/log/app/auth.log.
+See AuthClient.refreshToken. Dashboard: https://status.example.com/retry-policy

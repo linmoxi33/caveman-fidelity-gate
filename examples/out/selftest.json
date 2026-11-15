@@ -1,0 +1,17 @@
+{
+  "disagreement_detail": [],
+  "exit_code": 0,
+  "mode": "selftest",
+  "summary": {
+    "agreement_rate": 1.0,
+    "cases": 2,
+    "cases_without_pass_example": [],
+    "disagreements": 0,
+    "examples_reproduced": 4,
+    "fail_examples": 2,
+    "pass_examples": 2,
+    "total_examples": 4
+  },
+  "tool": "caveman-fidelity-gate",
+  "version": "1.0.0"
+}
